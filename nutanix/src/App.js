@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import GameBoard from './GameBoard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    height: 7,
+    width: 7,
+    mines: 10,
+  };
+
+  render() {
+    const { height, width, mines } = this.state;
+    return (
+      <div className="game">
+        <GameBoard height={height} width={width} mines={mines} />
+      </div>
+    );
+  }
 }
-
 export default App;
